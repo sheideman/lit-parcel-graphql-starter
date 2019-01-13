@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>WP Parcel Graphql</title>
+  <meta charset="utf-8">
+  <meta name="description" content="wordpress theme built with lit-element and bundled with parcel"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <base href="/">
+
+    <link rel="icon" href="./assets/favicon.ico">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="var(--primary)">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="WP Parcel Graphql">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WP Parcel Graphql">
+
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="./assets/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="./assets/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="./assets/manifest/icon-192x192.png">
+
+  <style>
+    @import url('https://cdn.materialdesignicons.com/3.3.92/css/materialdesignicons.min.css');
+    :root {
+    --app-primary-color: rebeccapurple;
+    --app-secondary-color:#fcb900;
+    --app-text-color:#333;
+  }
+    
+    @font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+    body {
+      display: grid;
+      grid-template-rows: 1fr;
+      font-family: Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      grid-template-columns: 1fr;
+      margin: 0;
+      box-sizing: border-box;
+      width: 100vw;
+      color:var(--app-text-color);
+      height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+
+<body>
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="module" src="./src/index.js"></script>
+ <app-shell apptitle="WP Parcel Graphql"></app-shell>
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtTt15qs5W_szUQq1gzIL2ZVms4Tbo6D0&libraries=places">
+ </script>
+
+ <script async defer src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver,WebAnimations"></script>
+ 
+</body>
+
+</html>
+

@@ -1,0 +1,42 @@
+{
+  "name": "ms-pwa-graphql-parcel",
+  "version": "1.0.0",
+  "description": "mint app for wp with graphql and bundled with parcel.",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.html",
+    "start": "parcel index.html",
+    "dev": "parcel watch index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-graphql-tag": "^1.6.0",
+    "babel-polyfill": "^6.26.0",
+    "parcel-bundler": "^1.10.3",
+    "parcel-plugin-bundle-manifest": "^0.2.0"
+  },
+  "browserslist": [
+    "last 1 chrome versions"
+  ],
+  "dependencies": {
+    "@polymer/iron-collapse": "^3.0.1",
+    "@polymer/iron-pages": "^3.0.1",
+    "@polymer/lit-element": "^0.6.4",
+    "@polymer/paper-dialog": "^3.0.1",
+    "@vaadin/router": "^1.2.0",
+    "@webcomponents/webcomponentsjs": "^2.2.1",
+    "apollo-boost": "^0.1.22",
+    "graphql": "14.0.0",
+    "graphql-tag": "^2.10.0",
+    "lit-html": "^0.14.0",
+    "pwa-helpers": "^0.9.0",
+    "reactive-state": "^3.2.1",
+    "rxjs": "^6.3.3",
+    "slideout": "^1.0.1",
+    "xstate": "^4.2.3"
+  }
+}

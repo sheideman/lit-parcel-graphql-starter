@@ -1,0 +1,21 @@
+{
+  "name": "PWA Wordpress Theme",
+  "short_name": "WPPWATHEME",
+  "description": "A Progressive Web App",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000",
+  "background_color": "#000",
+  "icons": [
+    {
+      "src": "src/assets/manifest/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/assets/manifest/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
