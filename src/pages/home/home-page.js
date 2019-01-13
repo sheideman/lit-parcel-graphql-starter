@@ -1,20 +1,19 @@
 import { LitElement, html } from '@polymer/lit-element';
-
+import {GET_PAGE} from '../../graphql/queries'
+import '../../components/apollo-query';
 export class Home extends LitElement {
 // The properties that your element exposes.
 static get properties() { return {
-state: {type:Object} 
+  _variables: {type:Object} 
 }};
- constructor() {
-super();
- // Set up the property defaults here
-this.state = {loading:true};
-};
-render() {
-const {state} = this;
-return html`
-${state.loading ? html`<p>Loading...</p>`:html`<h1>Hello from Home Page Component</h1>`}
 
+render() {
+  const {_variables={uri: "home"}} = this;
+return html`
+<h1>Home</h1>
+    ${_variables ? html`<apollo-query .query="${GET_PAGE}" .variables="${_variables}"
+  @query-success="${this.handleQuerySuccess}"></apollo-query>`:null}
+  
 `;
 };
 firstUpdated() {

@@ -1,13 +1,13 @@
 import { LitElement, html } from '@polymer/lit-element';
 import { installMediaQueryWatcher } from 'pwa-helpers/media-query';
 import { installOfflineWatcher } from 'pwa-helpers/network';
-import { installRouter } from 'pwa-helpers/router';
+import { Router } from '@vaadin/router';
 import { updateMetadata } from 'pwa-helpers/metadata';
-import './components/apollo-query';
+import './pages/home';
 import '@polymer/iron-collapse';
 import { MainStyles,MaterialDesignIcons } from '../styles';
 import {AppHeader,AppFooter, SidebarMenu} from './templates';
-import {GET_PAGE} from './graphql/queries'
+
 import Slideout from 'slideout';
 class AppShell extends LitElement {
 // The properties that your element exposes.
@@ -17,7 +17,7 @@ static get properties() {
       appTitle: { type: String },
       _page: { type: String },
       _snackbar: { type: Object },
-      _variables: {type:Object}           
+          
   };
 }
 updated(changedProps) {
@@ -32,7 +32,7 @@ updated(changedProps) {
 }
 
 render() {
-const {appTitle, dropdownOpened=false, menuOpened=false, toggleCollapse, handleSlideoutToggle,handleSlideoutClose, _variables={uri: "about"}} = this;
+
 return html`
 ${MaterialDesignIcons}
 ${MainStyles}
@@ -40,10 +40,7 @@ ${SidebarMenu(this)}
   <section class="page" id="panel">
 ${AppHeader(this)}
   <main class="content" id="outlet">
-    <h1>Hello World</h1>
-    ${_variables ? html`<apollo-query .query="${GET_PAGE}" .variables="${_variables}"
-  @query-success="${this.handleQuerySuccess}"></apollo-query>`:null}
-  
+<home-page></home-page>
   </main>
  ${AppFooter(this)}
   </section>
@@ -70,7 +67,16 @@ handleSlideoutToggle(){
   this.slideout.toggle();
  this.slideout.isOpen() ? this.menuOpened = true : this.menuOpened = false;
 }
+setRoutes(){
+  const router = new Router(this.shadowRoot.querySelector('#outlet'));
+
+		// router.setRoutes([
+		// 	{path: '/', component: 'home-page'}
+    // ]);
+}
 firstUpdated() {
+
+this.setRoutes()
   this.slideout = new Slideout({
     'panel': this.shadowRoot.querySelector('#panel'),
     'menu': this.shadowRoot.querySelector('#menu'),

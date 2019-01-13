@@ -1,6 +1,6 @@
 import {gql} from "apollo-boost";
 const GET_PAGE = gql`
- query GetPage($id: String, $pageId: ID, $uri: String) {
+ query GetPage($id: ID, $pageId: Int, $uri: String) {
   pageBy(id: $id, pageId: $pageId, uri: $uri) {
     id
     pageId
@@ -8,8 +8,7 @@ const GET_PAGE = gql`
     __typename
     title
     slug
-    header_layout
-    hide_page_header
+
     content
     excerpt
     featuredImage {
