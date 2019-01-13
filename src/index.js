@@ -4,6 +4,7 @@ import { installOfflineWatcher } from 'pwa-helpers/network';
 import { Router } from '@vaadin/router';
 import { updateMetadata } from 'pwa-helpers/metadata';
 import './pages/home';
+import './pages/404';
 import '@polymer/iron-collapse';
 import { MainStyles,MaterialDesignIcons } from '../styles';
 import {AppHeader,AppFooter, SidebarMenu} from './templates';
@@ -21,6 +22,7 @@ static get properties() {
   };
 }
 updated(changedProps) {
+  console.log(changedProps);
   if (changedProps.has('_page')) {
       const pageTitle = this.appTitle + ' - ' + this._page;
       updateMetadata({
@@ -40,7 +42,7 @@ ${SidebarMenu(this)}
   <section class="page" id="panel">
 ${AppHeader(this)}
   <main class="content" id="outlet">
-<home-page></home-page>
+
   </main>
  ${AppFooter(this)}
   </section>
@@ -52,9 +54,7 @@ toggleCollapse(){
   collapse.toggle();
   collapse.opened ? this.dropdownOpened = true : this.dropdownOpened = false;
 }
-handleQuerySuccess(evt){
-console.log(evt.detail);
-}
+
 handleSlideoutClose(){
   const menu = this.shadowRoot.querySelector('#menu');
   this.slideout.close();
@@ -67,16 +67,15 @@ handleSlideoutToggle(){
   this.slideout.toggle();
  this.slideout.isOpen() ? this.menuOpened = true : this.menuOpened = false;
 }
-setRoutes(){
-  const router = new Router(this.shadowRoot.querySelector('#outlet'));
 
-		// router.setRoutes([
-		// 	{path: '/', component: 'home-page'}
-    // ]);
-}
 firstUpdated() {
 
-this.setRoutes()
+  const router = new Router(this.shadowRoot.querySelector('#outlet'));
+console.log(router)
+		router.setRoutes([
+      {path: '/', component: 'home-page'},
+      {path: '(.*)', component: 'not-found'}
+    ]);
   this.slideout = new Slideout({
     'panel': this.shadowRoot.querySelector('#panel'),
     'menu': this.shadowRoot.querySelector('#menu'),

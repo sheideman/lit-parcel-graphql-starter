@@ -12,10 +12,13 @@ render() {
 return html`
 <h1>Home</h1>
     ${_variables ? html`<apollo-query .query="${GET_PAGE}" .variables="${_variables}"
-  @query-success="${this.handleQuerySuccess}"></apollo-query>`:null}
+  @query-success="${e=>this.handleQuerySuccess(e)}"></apollo-query>`:null}
   
 `;
 };
+handleQuerySuccess(evt){
+  console.log(evt.detail);
+  }
 firstUpdated() {
   // Any code that relies on render having been called once goes here.
   // (for example setting up listeners, etc)

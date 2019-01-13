@@ -27,7 +27,7 @@ async _callQuery(query, variables){
    this.loading = response.loading;
    this.data = response.data;
    if(this.data){
-     this.dispatchCustomEvent(this, 'query-success', this.data);
+     this.dispatchCustomEvent('query-success', this.data);
    }
    this.error = response.error;
    console.log(response);
