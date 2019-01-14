@@ -49,6 +49,10 @@ iron-collapse{
   text-align:center;
 }
 .content{
-  height: calc(100vh - 110px);
+  overflow-y:auto;
+  /* fluid content area -- footer floats to bottom */
+  min-height: calc(100vh - 110px);
+  /* fixed scrolling content area -- footer fixed to bottom */
+  /* height: calc(100vh - 110px); */
 }
 </style>`

@@ -3,12 +3,21 @@ import { installMediaQueryWatcher } from 'pwa-helpers/media-query';
 import { installOfflineWatcher } from 'pwa-helpers/network';
 import { Router } from '@vaadin/router';
 import { updateMetadata } from 'pwa-helpers/metadata';
-import './pages/home';
 import './pages/404';
 import '@polymer/iron-collapse';
+
 import { MainStyles,MaterialDesignIcons } from '../styles';
 import {AppHeader,AppFooter, SidebarMenu} from './templates';
-
+const pages = {
+  home: import('./pages/home'),
+  playground:import('./pages/playground')
+}
+const importPage = async (name) =>{
+  // Lazily load the requested page.
+  console.log(name);
+  const page = await pages[name]
+return page;
+}
 import Slideout from 'slideout';
 class AppShell extends LitElement {
 // The properties that your element exposes.
@@ -73,7 +82,13 @@ firstUpdated() {
   const router = new Router(this.shadowRoot.querySelector('#outlet'));
 console.log(router)
 		router.setRoutes([
-      {path: '/', component: 'home-page'},
+      {path: '/', action: ()=>{
+      
+      importPage('home')}, component: 'home-page'},
+
+      {path: '/playground', action: ()=>{
+      
+        importPage('playground')}, component: 'playground-page'},
       {path: '(.*)', component: 'not-found'}
     ]);
   this.slideout = new Slideout({
